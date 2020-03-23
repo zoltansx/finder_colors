@@ -69,7 +69,7 @@ def get(filename):
 
     try:
         attrs = xattr(filename)
-        color_num = ord(attrs.get(_FINDER_INFO_TAG)[9]) & 14 
+        color_num = attrs.get(_FINDER_INFO_TAG)[9] & 14 
         # & 14 to mask with "1110" (ie ignore all other bits).
         return NAMES[color_num]
 
