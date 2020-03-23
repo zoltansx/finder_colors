@@ -98,7 +98,7 @@ def set(filename, color): # pylint: disable=W0622
         + prev_color_extra_bits) \
         + previous[10:]
 
-    attrs.set(_FINDER_INFO_TAG, new)
+    attrs.set(_FINDER_INFO_TAG, new.encode())
     return new
 
 
