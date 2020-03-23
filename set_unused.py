@@ -20,27 +20,21 @@ def main():
     assignemnts_path = args.assignments
 
     main_dir = Path(assignemnts_path)
-    # import pdb; pdb.set_trace()
 
     # We only look for panni and luca
     for subdir in [x for x in main_dir.iterdir() if x.is_dir() and not x.name.startswith('.')]:
         # We skip .DS_Store
         for assignment in [path for path in subdir.rglob('*.*') if not path.name.startswith('.')]:
             path = str(assignment)
-            # import pdb; pdb.set_trace()
 
             # get_color is buggy: a file can have more than one color
             color = get_color(path)
-
-            # if assignment.name == '2020-03-23 - 60767.html':
-            #     import pdb; pdb.set_trace()
 
             if color == 'none':
                 if args.dry_run:
                     print("set_color(%s, COLORS['blue'])" % path)
                 else:
-                    pass
-                    #set_color(path, COLORS['blue'])
+                    set_color(path, 'blue')
 
 
 
